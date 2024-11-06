@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:ns1="#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+>
+  <rdf:Description rdf:about="Student457">
+    <ns1:memberOf rdf:resource="University0"/>
+    <ns1:emailAddress>Student457@University0.edu</ns1:emailAddress>
+    <ns1:takesCourse rdf:resource="Course37"/>
+    <ns1:takesCourse rdf:resource="Course0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="FullProfessor6">
+    <ns1:teacherOf rdf:resource="Course37"/>
+    <ns1:DegreeFrom rdf:resource="University297"/>
+    <ns1:worksFor rdf:resource="University0"/>
+    <ns1:researchInterest>Research10</ns1:researchInterest>
+  </rdf:Description>
+    <rdf:Description rdf:about="Student23">
+    <ns1:memberOf rdf:resource="University0"/>
+    <ns1:emailAddress>Student23@University0.edu</ns1:emailAddress>
+    <ns1:takesCourse rdf:resource="Course37"/>
+  </rdf:Description>
+</rdf:RDF>
