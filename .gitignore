@@ -1,0 +1,15 @@
+# 1. Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# 4. Ignore dữ liệu nhạy cảm hoặc tệp đầu ra
+*.log
+*.csv
+*.sqlite3
+*.json
+*.rdf
+*.owl
+*.txt
+
+# 5. Ignore thư mục build
+data/LUBM_Data/
