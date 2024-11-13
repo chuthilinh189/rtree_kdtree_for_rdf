@@ -2,7 +2,7 @@
 __pycache__/
 *.py[cod]
 
-# 4. Ignore dữ liệu nhạy cảm hoặc tệp đầu ra
+# 2. Ignore dữ liệu nhạy cảm hoặc tệp đầu ra
 *.log
 *.csv
 *.sqlite3
@@ -11,5 +11,5 @@ __pycache__/
 *.owl
 *.txt
 
-# 5. Ignore thư mục build
+# 3. Ignore thư mục data/LUBM_Data/
 data/LUBM_Data/

@@ -12,12 +12,23 @@ Chạy downloaddata.ipynb
 
 
 BƯỚC 3: XÂY DỰNG BIỂU ĐỒ PHÂN ĐOẠN 3 CHIỀU 
-Cách 1: Chạy main.ipynb trong system_test
-Cách 2:
 cd system
-python main.py --data=data_demo --print=True 
+python main.py --mdh=True --data=data_demo --print=True --visualize=True
+python main.py --mdh=True --data=data_test --print=False  
+python main.py --mdh=True --data=data --print=False --number_charts=3     
+
+-> Các điểm dữ liệu RDF trong không gian 3 chiều và bộ mã hóa được lưu ở system/storage/mdh/
+
 
 BƯỚC 4: XÂY DỰNG CẤU TRÚC CHỈ MỤC R*-TREE TỪ CÁC ĐIỂM RDF
+- demo cấu trúc chỉ mục r*-tree với dữ liệu điểm 2d
+python rstar_tree/datagen2d.py --data=30
+python rstar_tree/rtvis_2d.py --M=4 --m=2 --p=1
+- xây dựng cấu trúc chỉ mục R*-tree cho dữ liệu RDF
+python main.py --rstar_tree=True --data=data_demo --M=4 --m=2 --p=1
+python main.py --rstar_tree=True --data=data_test --M=4 --m=2 --p=1 --print=False
+python main.py --rstar_tree=True --data=data --M=32 --m=12 --p=10 --print=False --number_charts=1 --depth_chart=3
+
 
 BƯỚC 5: XÂY DỰNG CẤU TRÚC CHỈ MỤC K-D TREE
 
