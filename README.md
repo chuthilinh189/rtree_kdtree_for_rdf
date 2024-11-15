@@ -32,6 +32,12 @@ python main.py --rstar_tree=True --data=data --M=32 --m=12 --p=10 --print=False 
 
 BƯỚC 5: XÂY DỰNG CẤU TRÚC CHỈ MỤC K-D TREE
 
+
+
 BƯỚC 6: TRUY VẤN DỮ LIỆU
+- Kiểm tra Q isSPARQL() trả về tập hợp các truy vấn đơn
+- FilterPhase(Các cây R*tree, truy vấn đơn) trả về các id của cây k-d tree
+- RefinePhase(Các cây k-d tree, truy vấn đơn) trả về 1 tupleset
+- JOIN(tuplesets1, tupleset2, Q) trả về 1 tupleset (Q để xác định điều kiện truy vấn)
 
-
+split_leaf

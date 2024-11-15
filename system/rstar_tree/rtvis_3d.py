@@ -91,7 +91,7 @@ def run_rstar_tree(data, M, m, p, print_output, number_charts, depth_chart):
             print("\n\nXÂY DỰNG CẤU TRÚC CHỈ MỤC R*-TREE CHO : " + file_name)
             rdf_file_path = os.path.join(mdh_directory, file_name)
             # Load dữ liệu
-            df = pd.read_csv(rdf_file_path, usecols=[1, 2, 3])
+            df = pd.read_csv(rdf_file_path, usecols=[1, 2, 3, 4, 5])
             data3 = [x for x in enumerate(df.values.tolist())]
             # print(data3)
             # print(rstartree)
