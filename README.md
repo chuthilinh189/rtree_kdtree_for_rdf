@@ -39,5 +39,3 @@ BƯỚC 6: TRUY VẤN DỮ LIỆU
 - FilterPhase(Các cây R*tree, truy vấn đơn) trả về các id của cây k-d tree
 - RefinePhase(Các cây k-d tree, truy vấn đơn) trả về 1 tupleset
 - JOIN(tuplesets1, tupleset2, Q) trả về 1 tupleset (Q để xác định điều kiện truy vấn)
-
-split_leaf

@@ -71,9 +71,12 @@ def convert_triples_to_coordinates(triples):
 
     for subj, pred, obj in triples:
         # Tạo mã hóa cho mỗi thực thể
-        entity_mapping[subj] = generate_unique_code(entity_mapping, subj, data_size)
-        entity_mapping[pred] = generate_unique_code(entity_mapping, pred, data_size)
-        entity_mapping[obj] = generate_unique_code(entity_mapping, obj, data_size)
+        # entity_mapping[subj] = generate_unique_code(entity_mapping, subj, data_size)
+        # entity_mapping[pred] = generate_unique_code(entity_mapping, pred, data_size)
+        # entity_mapping[obj] = generate_unique_code(entity_mapping, obj, data_size)
+        entity_mapping[subj] = normalize_hash(subj)
+        entity_mapping[pred] = normalize_hash(pred)
+        entity_mapping[obj] = normalize_hash(obj)
 
         x = entity_mapping[subj]
         y = entity_mapping[pred]
@@ -87,14 +90,21 @@ def convert_triples_to_coordinates(triples):
 
     return coordinates, entity_mapping
 
-# Hàm sinh mã không trùng lặp
-def generate_unique_code(entity_mapping, entity, data_size):
-    code = int(hashlib.md5(entity.encode()).hexdigest(), 16) % (data_size) + 1
-    # Kiểm tra và tinh chỉnh nếu bị trùng lặp
-    while code in entity_mapping.values():
-        code = (code + 1) % (data_size) + 1  # Tăng giá trị và lấy modulo để tránh trùng lặp
-    return code
+# # Hàm sinh mã không trùng lặp
+# def generate_unique_code(entity_mapping, entity, data_size):
+#     code = int(hashlib.md5(entity.encode()).hexdigest(), 16) % (data_size) + 1
+#     # Kiểm tra và tinh chỉnh nếu bị trùng lặp
+#     while code in entity_mapping.values():
+#         code = (code + 1) % (data_size) + 1  # Tăng giá trị và lấy modulo để tránh trùng lặp
+#     return code
 
+def normalize_hash(value):
+    # Tính giá trị băm của chuỗi
+    hash_value = abs(hash(value))
+    # Chia giá trị băm cho giá trị lớn nhất có thể (2^63 - 1 trên hệ thống 64-bit)
+    max_hash_value = 2**63 - 1
+    normalized_value = hash_value / max_hash_value
+    return normalized_value
 
 # Hàm thêm tần suất đếm vào các bộ ba
 def add_frequency_to_triples(coordinates):
@@ -132,7 +142,7 @@ def plot_3d_coordinates(triples, file_name):
     ax.set_ylabel('Predicate')
     ax.set_zlabel('Object')
 
-    if(len(triples) < 100):
+    if(len(triples) < 20):
         # Gán nhãn cho các điểm là tọa độ của điểm đó
         for x, y, z, alpha, beta in triples:
             ax.text(x, y, z, f'({x}, {y}, {z})', fontsize=10, color='blue')
